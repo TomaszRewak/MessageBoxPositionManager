@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageBoxPositionManager",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBoxPositionManager.Example.WindowsForms", "MessageBoxPositionManager.Example.WindowsForms\MessageBoxPositionManager.Example.WindowsForms.csproj", "{058450F7-B76C-4A9A-9D1C-5D9605765B4B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBoxPositionManager.Example.WindowsPresentationFoundation", "MessageBoxPositionManager.Example.WindowsPresentationFoundation\MessageBoxPositionManager.Example.WindowsPresentationFoundation.csproj", "{F101BEC0-BE62-43DB-B4A3-95763888836A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{058450F7-B76C-4A9A-9D1C-5D9605765B4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{058450F7-B76C-4A9A-9D1C-5D9605765B4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{058450F7-B76C-4A9A-9D1C-5D9605765B4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F101BEC0-BE62-43DB-B4A3-95763888836A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F101BEC0-BE62-43DB-B4A3-95763888836A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F101BEC0-BE62-43DB-B4A3-95763888836A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F101BEC0-BE62-43DB-B4A3-95763888836A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
