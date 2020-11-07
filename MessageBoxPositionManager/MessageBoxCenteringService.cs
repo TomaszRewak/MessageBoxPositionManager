@@ -5,7 +5,7 @@ using static MessageBoxPositionManager.MessageBoxInterop;
 
 namespace MessageBoxPositionManager
 {
-	public static class MessageBoxPositionManager
+	public static class MessageBoxCenteringService
 	{
 		[ThreadStatic] private static IntPtr _hook;
 		[ThreadStatic] private static HookProc _hookProc;
