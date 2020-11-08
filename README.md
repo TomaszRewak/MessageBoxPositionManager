@@ -2,6 +2,10 @@
 
 A small library that moves all newly created MessageBoxes to the center of their owner forms.
 
+<p align="center">
+  <img src="https://repository-images.githubusercontent.com/310921599/dc308600-21ef-11eb-8a35-4a18f3b97094" width=800/>
+</p>
+
 Works well with both the `System.Windows.MessageBox` (WPF) and the `System.Windows.Forms.MessageBox` (WindowsForms).
 
 To set it up simply install the package (`dotnet add package MessageBoxPositionManager`) and call the following static method from your UI thread (once, during the startup of your app):
