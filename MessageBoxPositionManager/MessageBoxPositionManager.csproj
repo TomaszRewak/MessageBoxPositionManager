@@ -2,6 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.0</Version>
+    <Description>Display MessageBoxs in a center of their parent forms. Works with both WPF and WindowsForms.</Description>
+    <Copyright>Tomasz Rewak</Copyright>
+    <PackageProjectUrl>https://github.com/TomaszRewak/MessageBoxPositionManager</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/TomaszRewak/MessageBoxPositionManager</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>MessageBox, WindowsForms, WPF</PackageTags>
+    <PackageReleaseNotes>1.0.0 - First release</PackageReleaseNotes>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
 </Project>
