@@ -33,7 +33,7 @@ namespace MessageBoxPositionManager
 
 			var box = message.Hwnd;
 			var parent = GetParent(box);
-			if (param == IntPtr.Zero) return;
+			if (parent == IntPtr.Zero) return;
 
 			var className = new StringBuilder(7);
 			GetClassName(box, className, className.Capacity);
