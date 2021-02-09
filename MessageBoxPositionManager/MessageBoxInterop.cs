@@ -11,7 +11,7 @@ namespace MessageBoxPositionManager
 
 		[DllImport("user32.dll")]
 		[return: MarshalAs(UnmanagedType.Bool)]
-		public static extern bool GetWindowRect(IntPtr hWnd, out RECT lpRect);
+		public static extern bool GetWindowRect(IntPtr hWnd, out Rect lpRect);
 
 		[DllImport("user32.dll", SetLastError = true)]
 		public static extern IntPtr SetWindowsHookEx(HookType hookType, HookProc lpfn, IntPtr hMod, uint dwThreadId);
@@ -19,9 +19,6 @@ namespace MessageBoxPositionManager
 		[DllImport("user32.dll", SetLastError = true)]
 		[return: MarshalAs(UnmanagedType.Bool)]
 		public static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int x, int y, int cx, int cy, SetWindowPosFlags uFlags);
-
-		[DllImport("user32.dll", SetLastError = true)]
-		public static extern bool UnhookWindowsHookEx(IntPtr hhk);
 
 		[DllImport("user32.dll")]
 		public static extern IntPtr CallNextHookEx(IntPtr hhk, int nCode, IntPtr wParam, IntPtr lParam);
@@ -31,6 +28,12 @@ namespace MessageBoxPositionManager
 
 		[DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
 		public static extern int GetClassName(IntPtr hWnd, StringBuilder lpClassName, int nMaxCount);
+
+		[DllImport("User32.dll", SetLastError = true)]
+		public static extern IntPtr MonitorFromWindow(IntPtr hwnd, MonitorDefaultTo dwFlags);
+
+		[DllImport("user32.dll", CharSet = CharSet.Auto)]
+		public static extern bool GetMonitorInfo(IntPtr hMonitor, ref MonitorInfo lpmi);
 
 		public delegate IntPtr HookProc(int code, IntPtr wParam, IntPtr lParam);
 
@@ -72,8 +75,15 @@ namespace MessageBoxPositionManager
 			ShowWindow = 0x0040,
 		}
 
+		public enum MonitorDefaultTo : uint
+		{
+			Null = 0x0000,
+			Primary = 0x0001,
+			Nearest = 0x0002,
+		}
+
 		[StructLayout(LayoutKind.Sequential)]
-		public struct RECT
+		public struct Rect
 		{
 			public int Left;
 			public int Top;
@@ -89,6 +99,26 @@ namespace MessageBoxPositionManager
 			public readonly IntPtr WParam;
 			public readonly uint Message;
 			public readonly IntPtr Hwnd;
+		}
+
+		[StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
+		internal struct MonitorInfo
+		{
+			private const int SizeConst = 32;
+
+			public int Size;
+			public Rect Monitor;
+			public Rect WorkArea;
+			public uint Flags;
+
+			[MarshalAs(UnmanagedType.ByValTStr, SizeConst = SizeConst)]
+			public string DeviceName;
+
+			public static MonitorInfo Empty => new MonitorInfo
+			{
+				Size = Marshal.SizeOf(new MonitorInfo()),
+				DeviceName = string.Empty
+			};
 		}
 	}
 }

@@ -47,6 +47,13 @@ namespace MessageBoxPositionManager
 			var left = (parentRect.Left + parentRect.Right) / 2 - width / 2;
 			var top = (parentRect.Top + parentRect.Bottom) / 2 - height / 2;
 
+			var screen = MonitorFromWindow(parent, MonitorDefaultTo.Nearest);
+			var monitorInfo = MonitorInfo.Empty;
+			GetMonitorInfo(screen, ref monitorInfo);
+
+			left = Math.Max(monitorInfo.WorkArea.Left, Math.Min(monitorInfo.WorkArea.Right - width, left));
+			top = Math.Max(monitorInfo.WorkArea.Top, Math.Min(monitorInfo.WorkArea.Bottom - height, top));
+
 			const SetWindowPosFlags commonFlags =
 				SetWindowPosFlags.SynchronousWindowPosition |
 				SetWindowPosFlags.IgnoreResize |
