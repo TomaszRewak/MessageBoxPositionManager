@@ -3,14 +3,15 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.1.0</Version>
+    <Version>1.1.1</Version>
     <Description>Display MessageBoxs in a center of their parent forms. Works with both WPF and WindowsForms.</Description>
     <Copyright>Tomasz Rewak</Copyright>
     <PackageProjectUrl>https://github.com/TomaszRewak/MessageBoxPositionManager</PackageProjectUrl>
     <RepositoryUrl>https://github.com/TomaszRewak/MessageBoxPositionManager</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>MessageBox, WindowsForms, WPF</PackageTags>
-    <PackageReleaseNotes>1.1.0 - Clipping the message box position ot the window boundaries
+    <PackageReleaseNotes>1.1.1 - Adding a sanity check around the GetMonitorInfo in screen clipping
+1.1.0 - Clipping the message box position ot the window boundaries
 1.0.0 - First release</PackageReleaseNotes>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>

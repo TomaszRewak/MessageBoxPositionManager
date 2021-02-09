@@ -49,10 +49,11 @@ namespace MessageBoxPositionManager
 
 			var screen = MonitorFromWindow(parent, MonitorDefaultTo.Nearest);
 			var monitorInfo = MonitorInfo.Empty;
-			GetMonitorInfo(screen, ref monitorInfo);
-
-			left = Math.Max(monitorInfo.WorkArea.Left, Math.Min(monitorInfo.WorkArea.Right - width, left));
-			top = Math.Max(monitorInfo.WorkArea.Top, Math.Min(monitorInfo.WorkArea.Bottom - height, top));
+			if (GetMonitorInfo(screen, ref monitorInfo))
+			{
+				left = Math.Max(monitorInfo.WorkArea.Left, Math.Min(monitorInfo.WorkArea.Right - width, left));
+				top = Math.Max(monitorInfo.WorkArea.Top, Math.Min(monitorInfo.WorkArea.Bottom - height, top));
+			}
 
 			const SetWindowPosFlags commonFlags =
 				SetWindowPosFlags.SynchronousWindowPosition |
